@@ -27,4 +27,11 @@ class Users {
 
         //return → devuelve ese array al lugar donde se llamó al método getAll().
     }
+
+    public static function crear($unEmail, $unName, $unLast_name, $unPassword){
+        $db = DB::getConnection();
+        $stmt = $db->prepare("INSERT INTO users (email,first_name,last_name,password) VALUES (?, ?, ?, ?)"
+        return $stmt->execute([$unEmail, $unName, $unLast_name, $unPassword]);
+        
+    }
 }
